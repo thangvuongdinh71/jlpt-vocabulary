@@ -29,7 +29,7 @@ public class VocabularyService {
                 vocabulary.getLevel(),
                 vocabulary.getExample(),
                 vocabulary.getCreatedAt()
-        )
+        );
     }
 
     //create vocabulary
@@ -55,8 +55,8 @@ public class VocabularyService {
     }
 
     //get vocabulary by ID
-    public VocabularyResponse getVocabularyByID(Long Id) {
-        Vocabulary vocabulary = vocabularyRepository.findById(Id)
+    public VocabularyResponse getVocabularyByID(Long id) {
+        Vocabulary vocabulary = vocabularyRepository.findById(id)
                 .orElseThrow(()-> new ResponseStatusException(
                         HttpStatus.NOT_FOUND,
                         "Vocabulary not found by Id" + id
@@ -80,7 +80,7 @@ public class VocabularyService {
         vocabulary.setLevel(request.getLevel());
         vocabulary.setExample(request.getExample());
 
-        Vocabulary updatedVocabulary = VocabularyRepository.save(vocabulary);
+        Vocabulary updatedVocabulary = vocabularyRepository.save(vocabulary);
         return toRespone(updatedVocabulary);
     }
 
@@ -94,6 +94,5 @@ public class VocabularyService {
         }
         vocabularyRepository.deleteById(id);
     }
-
 
 }

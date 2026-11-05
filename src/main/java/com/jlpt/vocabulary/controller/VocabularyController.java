@@ -53,7 +53,7 @@ public class VocabularyController {
             @PathVariable Long id
     ) {
         return ResponseEntity.ok(
-                vocabularyService.getVocabularyById(id)
+                vocabularyService.getVocabularyByID(id)
         );
     }
 
